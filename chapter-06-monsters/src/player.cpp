@@ -13,7 +13,7 @@ bool Player::try_move(r::ivec2 offset) {
         std::clamp(position.x + offset.x, 0, 39),
         std::clamp(position.y + offset.y, 0, 29)
     };
-    if (map.tiles[new_position].type == Tile::Type::Wall)
+    if (map.tiles[new_position].blocked)
         return false;
     position = new_position;
     return true;
